@@ -52,6 +52,7 @@ Healthchecker.add_check(CustomHealthcheck, pass_value: 'FOO')
 * database
 * migration
 * cache
+  * options: cache_key, optional - the key to use when checking the cache, defaults to SecureRandom.hex (expires_in 1.second)
 * s3
   * options: client, optional - defaults to `Aws::S3::Client.new`
   * options: buckets, required - list of bucket names to check
