@@ -1,7 +1,7 @@
-require 'healthchecker/base_check'
+require 'healthchecker/check'
 
-module Healthchecker
-  class CacheCheck < Healthchecker::BaseCheck
+module Healthchecker::Checks
+  class Cache < Healthchecker::Check
 
     def check!
       return if Rails.cache.write(cache_key, 'ok', :expires_in => 1.second)

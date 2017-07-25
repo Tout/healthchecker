@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Healthchecker::S3Check do
+describe Healthchecker::Checks::S3 do
   let(:fake_s3) { Aws::S3::Client.new(stub_responses: fake_s3_client_stubs)}
   let(:options) { {buckets: ['test_1', 'test_2'], client: fake_s3} }
   let(:test_inst) { described_class.new(options) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class CustomCheck < Healthchecker::BaseCheck
+class CustomCheck < Healthchecker::Check
   def check!
 
   end
@@ -24,7 +24,7 @@ describe Healthchecker do
         let(:check_name) { check }
         it 'should add the check' do
           subject
-          expect(described_class.checks.last).to be_a("Healthchecker::#{check.to_s.capitalize}Check".constantize)
+          expect(described_class.checks.last).to be_a("Healthchecker::Checks::#{check.to_s.capitalize}".constantize)
         end
       end
     end

@@ -1,7 +1,7 @@
-require 'healthchecker/base_check'
+require 'healthchecker/check'
 
-module Healthchecker
-  class SolrCheck < BaseCheck
+module Healthchecker::Checks
+  class Solr < Healthchecker::Check
 
     def client
       options[:rsolr_client] || Sunspot::Session.new.send(:connection)

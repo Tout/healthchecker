@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Healthchecker::DynamodbCheck do
-  let(:client) { double(list_tables: true) }
-  let(:options) { {client: client} }
+describe Healthchecker::Checks::Migration do
+  let(:options) { {} }
+  let(:test_inst) { described_class.new(options) }
 
   describe '#check!' do
     subject {described_class.new(options).check!}
@@ -16,11 +16,12 @@ describe Healthchecker::DynamodbCheck do
 
     context 'when check fails' do
       before do
-        allow(client).to receive(:list_tables).and_raise(Aws::Errors::ServiceError.new({}, 'error'))
+        allow(ActiveRecord::Migration).to receive(:check_pending!)
+          .and_raise(ActiveRecord::PendingMigrationError)
       end
 
       it 'should raise an error' do
-        expect {subject}.to raise_error(Aws::Errors::ServiceError)
+        expect {subject}.to raise_error(ActiveRecord::PendingMigrationError)
       end
     end
   end

@@ -1,7 +1,7 @@
-require 'healthchecker/base_check'
+require 'healthchecker/check'
 
-module Healthchecker
-  class DynamodbCheck < BaseCheck
+module Healthchecker::Checks
+  class Dynamodb < Healthchecker::Check
 
     def client
       options[:client] || Aws::DynamoDB::Client.new

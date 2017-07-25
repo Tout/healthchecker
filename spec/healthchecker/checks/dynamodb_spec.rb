@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Healthchecker::DatabaseCheck do
-  let(:options) { {} }
-  let(:test_inst) { described_class.new(options) }
+describe Healthchecker::Checks::Dynamodb do
+  let(:client) { double(list_tables: true) }
+  let(:options) { {client: client} }
 
   describe '#check!' do
     subject {described_class.new(options).check!}
@@ -16,12 +16,11 @@ describe Healthchecker::DatabaseCheck do
 
     context 'when check fails' do
       before do
-        allow(ActiveRecord::Migrator).to receive(:current_version)
-          .and_raise(SQLite3::Exception)
+        allow(client).to receive(:list_tables).and_raise(Aws::Errors::ServiceError.new({}, 'error'))
       end
 
       it 'should raise an error' do
-        expect {subject}.to raise_error(SQLite3::Exception)
+        expect {subject}.to raise_error(Aws::Errors::ServiceError)
       end
     end
   end

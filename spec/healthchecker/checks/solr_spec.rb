@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Healthchecker::SolrCheck do
+describe Healthchecker::Checks::Solr do
   let(:client) { double(head: response) }
   let(:response) { double(response: {status: status}) }
   let(:status) { 200 }

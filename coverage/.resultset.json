@@ -41,7 +41,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/base_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/check.rb": [
         1,
         1,
         1,
@@ -60,7 +60,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/redis_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/redis.rb": [
         1,
         null,
         1,
@@ -75,7 +75,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/migration_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/migration.rb": [
         1,
         null,
         1,
@@ -87,7 +87,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/database_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/database.rb": [
         1,
         null,
         1,
@@ -99,7 +99,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/cache_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/cache.rb": [
         1,
         null,
         1,
@@ -116,7 +116,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/s3_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/s3.rb": [
         1,
         null,
         1,
@@ -145,7 +145,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/solr_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/solr.rb": [
         1,
         null,
         1,
@@ -162,7 +162,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/dynamodb_check.rb": [
+      "/Users/william/workspace/tout/healthchecker/lib/healthchecker/checks/dynamodb.rb": [
         1,
         null,
         1,
@@ -352,7 +352,7 @@
         1,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/database_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/database_spec.rb": [
         1,
         null,
         1,
@@ -383,7 +383,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/dynamodb_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/dynamodb_spec.rb": [
         1,
         null,
         1,
@@ -413,7 +413,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/migration_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/migration_spec.rb": [
         1,
         null,
         1,
@@ -444,7 +444,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/redis_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/redis_spec.rb": [
         1,
         null,
         1,
@@ -487,7 +487,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/s3_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/s3_spec.rb": [
         1,
         null,
         1,
@@ -531,7 +531,7 @@
         null,
         null
       ],
-      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/solr_check_spec.rb": [
+      "/Users/william/workspace/tout/healthchecker/spec/healthchecker/checks/solr_spec.rb": [
         1,
         null,
         1,
@@ -648,6 +648,6 @@
         null
       ]
     },
-    "timestamp": 1500943984
+    "timestamp": 1500946963
   }
 }

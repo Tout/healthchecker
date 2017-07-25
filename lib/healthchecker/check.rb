@@ -1,5 +1,5 @@
 module Healthchecker
-  class BaseCheck
+  class Check
     attr_reader :options
 
     def initialize(options = {})

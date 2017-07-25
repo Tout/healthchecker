@@ -1,12 +1,12 @@
 require "healthchecker/engine"
-require 'healthchecker/base_check'
-require 'healthchecker/redis_check'
-require 'healthchecker/migration_check'
-require 'healthchecker/database_check'
-require 'healthchecker/cache_check'
-require 'healthchecker/s3_check'
-require 'healthchecker/solr_check'
-require 'healthchecker/dynamodb_check'
+require 'healthchecker/check'
+require 'healthchecker/checks/redis'
+require 'healthchecker/checks/migration'
+require 'healthchecker/checks/database'
+require 'healthchecker/checks/cache'
+require 'healthchecker/checks/s3'
+require 'healthchecker/checks/solr'
+require 'healthchecker/checks/dynamodb'
 
 module Healthchecker
   APPLICATION_STARTED_AT = Time.now
@@ -24,6 +24,6 @@ module Healthchecker
 
   def self.lookup_class(name_or_class)
     return name_or_class if name_or_class.respond_to?(:new)
-    "Healthchecker::#{name_or_class.to_s.capitalize}Check".constantize
+    "Healthchecker::Checks::#{name_or_class.to_s.capitalize}".constantize
   end
 end

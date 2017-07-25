@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Healthchecker::RedisCheck do
+describe Healthchecker::Checks::Redis do
   let(:client) { Redis.new }
   let(:options) { {client: client} }
   let(:test_inst) { described_class.new(options) }

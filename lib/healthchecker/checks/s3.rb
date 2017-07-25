@@ -1,7 +1,7 @@
-require 'healthchecker/base_check'
+require 'healthchecker/check'
 
-module Healthchecker
-  class S3Check < Healthchecker::BaseCheck
+module Healthchecker::Checks
+  class S3 < Healthchecker::Check
 
     def check!
       options[:buckets].each {|bucket| check_bucket_access(bucket)}

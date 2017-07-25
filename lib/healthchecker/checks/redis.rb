@@ -1,7 +1,7 @@
-require 'healthchecker/base_check'
+require 'healthchecker/check'
 
-module Healthchecker
-  class RedisCheck < Healthchecker::BaseCheck
+module Healthchecker::Checks
+  class Redis < Healthchecker::Check
 
     def check!
       client = options[:client] || Redis.new
