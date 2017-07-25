@@ -4,7 +4,7 @@ module Healthchecker
   class DynamodbCheck < BaseCheck
 
     def client
-      options[:client] || Aws::Dynamodb::Client.new
+      options[:client] || Aws::DynamoDB::Client.new
     end
 
     def check!

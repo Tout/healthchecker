@@ -60,7 +60,7 @@ Healthchecker.add_check(CustomHealthcheck, pass_value: 'FOO')
 * solr
   * options: rsolr_client, optional - defaults to default configuration sunspot uses
 * dynamodb
-  * options: client, optional - defaults to `Aws::Dynamodb::Client.new`
+  * options: client, optional - defaults to `Aws::DynamoDB::Client.new`
 
 Note: All checks will return all passed options with failures with the addition of the check specified, by default
 
