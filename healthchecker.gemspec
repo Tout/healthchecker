@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'redis'
   s.add_development_dependency 'aws-sdk'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'sunspot_rails'
 end

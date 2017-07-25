@@ -5,6 +5,7 @@ require 'healthchecker/migration_check'
 require 'healthchecker/database_check'
 require 'healthchecker/cache_check'
 require 'healthchecker/s3_check'
+require 'healthchecker/solr_check'
 
 module Healthchecker
   APPLICATION_STARTED_AT = Time.now
