@@ -53,12 +53,13 @@ Healthchecker.add_check(CustomHealthcheck, pass_value: 'FOO')
 * migration
 * cache
 * s3
-  * options: client, required - Aws::S3::Client.new
+  * options: client, optional - defaults to `Aws::S3::Client.new`
   * options: buckets, required - list of bucket names to check
   * options: object_key, options - object_key to use when testing read, write, and delete privileges for each bucket. Defaults to `healthchecker/#{Time.now.to_i}.json`
 * solr
   * options: rsolr_client, optional - defaults to default configuration sunspot uses
-* dynamodb (Not yet implemented)
+* dynamodb
+  * options: client, optional - defaults to `Aws::Dynamodb::Client.new`
 
 Note: All checks will return all passed options with failures with the addition of the check specified, by default
 

@@ -9,7 +9,7 @@ module Healthchecker
     end
 
     def client
-      options[:client]
+      options[:client] || Aws::S3::Client.new
     end
 
     def check_bucket_access(bucket)
