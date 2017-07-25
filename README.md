@@ -31,7 +31,7 @@ end
 In an initializer such as `config/initializers/healthchecker.rb`, add your checks.
 Example:
 ```ruby
-class CustomHealthcheck < Healthchecker::BaseCheck
+class CustomHealthcheck < Healthchecker::Check
   def check!
     options[:pass_value] == 'FOO'
   end
