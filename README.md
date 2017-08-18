@@ -28,6 +28,12 @@ Rails.application.routes.draw do
 end
 ```
 
+With that you will be able to hit:
+
+curl <service_uri>/healthchecker/status
+which will return 200 with {"status": "ok"}
+or return 500 with {"status": <error messages>}
+
 In an initializer such as `config/initializers/healthchecker.rb`, add your checks.
 Example:
 ```ruby
