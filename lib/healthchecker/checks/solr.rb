@@ -4,7 +4,13 @@ module Healthchecker::Checks
   class Solr < Healthchecker::Check
 
     def client
-      options[:rsolr_client] || Sunspot::Session.new.send(:connection)
+      if options[:rsolr_client]
+        options[:rsolr_client] 
+      elsif options[:url]
+        RSolr.connect(url: options[:url])
+      else
+        Sunspot::Session.new.send(:connection)
+      end
     end
 
     def check!
