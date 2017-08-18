@@ -5,7 +5,7 @@ module Healthchecker::Checks
 
     def client
       if options[:rsolr_client]
-        options[:rsolr_client] 
+        options[:rsolr_client]
       elsif options[:url]
         RSolr.connect(url: options[:url])
       else
@@ -14,8 +14,11 @@ module Healthchecker::Checks
     end
 
     def check!
+      msg = "Could not connect to solr"
       ping_success = client.head("admin/ping", :headers => {"Cache-Control" => "If-None-Match"}).response[:status] == 200
-      raise "Could not connect to solr" unless ping_success
+      raise msg unless ping_success
+    rescue => e
+      raise msg
     end
   end
 end
