@@ -28,11 +28,11 @@ describe Healthchecker::Checks::Solr do
 
       context 'with raised error' do
         before do
-          allow(client).to receive(:head).and_raise(RSolr::Error::ConnectionRefused)
+          allow(client).to receive(:head).and_raise(RuntimeError, 'Could not connect to solr')
         end
 
         it 'should raise an error' do
-          expect {subject}.to raise_error(RSolr::Error::ConnectionRefused)
+          expect {subject}.to raise_error(RuntimeError, 'Could not connect to solr')
         end
       end
     end

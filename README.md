@@ -70,6 +70,27 @@ Healthchecker.add_check(CustomHealthcheck, pass_value: 'FOO')
 
 Note: All checks will return all passed options with failures with the addition of the check specified, by default
 
+### Metrics:
+
+curl <service_uri>/healthchecker/metrics
+which will return a JSON response with selected metrics
+
+In an initializer such as `config/initializers/healthchecker.rb`, add a configuration block.
+You can add this block anywhere in the file, though it make most sense before the checks.
+
+```ruby
+Healthchecker.configure do |config|
+  config.metrics = [:redis, :sidekiq]
+end
+
+# Healthchecker.add_check...
+# Healthchecker.add_check...
+```
+
+* `config.metrics` - Determines which metrics to display in `metrics` endpoint
+  * Defaults to `[:redis, :resque]`
+  * Supported metrics are `:redis`, `:resque`, and `:sidekiq`
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -68,4 +68,20 @@ describe Healthchecker do
     end
   end
 
+  describe '.configure' do
+    before do
+      Healthchecker.configure do |config|
+        config.metrics = [:redis, :sidekiq]
+      end
+    end
+
+    it 'sets configuration' do
+      expect(Healthchecker.configuration.metrics).to eq([:redis, :sidekiq])
+    end
+
+    after do
+      Healthchecker.reset
+    end
+  end
+
 end

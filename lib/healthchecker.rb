@@ -1,4 +1,5 @@
-require "healthchecker/engine"
+require 'healthchecker/engine'
+require 'healthchecker/configuration'
 require 'healthchecker/check'
 require 'healthchecker/checks/redis'
 require 'healthchecker/checks/migration'
@@ -12,6 +13,11 @@ module Healthchecker
   APPLICATION_STARTED_AT = Time.now
 
   mattr_accessor :checks
+
+  class << self
+    attr_writer :configuration
+  end
+
   self.checks = []
 
   def self.add_check(name_or_class, options={})
@@ -21,6 +27,20 @@ module Healthchecker
   def self.perform_checks
     self.checks.map(&:perform_check).compact
   end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.reset
+    @configuration = Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
+
+  private
 
   def self.lookup_class(name_or_class)
     return name_or_class if name_or_class.respond_to?(:new)
