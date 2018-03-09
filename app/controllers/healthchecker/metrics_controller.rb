@@ -25,6 +25,8 @@ module Healthchecker
     end
 
     module ConfigurableMetrics
+      extend self
+
       def redis
         {
           redis: {
